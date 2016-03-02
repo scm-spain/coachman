@@ -1,0 +1,48 @@
+group 'com.scmspain.bigdata.emr.coachman'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+mainClassName = "com.scmspain.bigdata.emr.Coachman"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.mockito:mockito-all:1.10.19'
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.3.1'
+    compile 'com.amazonaws:aws-java-sdk:+'
+    compile 'commons-io:commons-io:2.4'
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'com.google.dagger:dagger:2.0.1'
+    compile 'org.jasypt:jasypt:1.9.2'
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Deploy EMR cluster and Oozie workflows',
+                'Implementation-Version': version,
+                'Main-Class': mainClassName
+    }
+}
+
+test {
+    testLogging {
+        events 'started', 'passed'
+    }
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Deploy EMR cluster and Oozie workflows',
+                'Implementation-Version': version,
+                'Main-Class': mainClassName
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

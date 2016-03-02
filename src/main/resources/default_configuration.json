@@ -1,0 +1,11 @@
+{
+  "classification": "hadoop-env",
+  "configurations": [
+    {
+      "classification": "export",
+      "properties": {
+        "OOZIE_URL": "http://localhost:11000/oozie"
+      }
+    }
+  ]
+}

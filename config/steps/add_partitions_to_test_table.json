@@ -1,0 +1,12 @@
+{
+  "name": "Create test database table on metastore",
+  "jar": "command-runner.jar",
+  "arguments": [
+    "hive-script",
+    "--run-hive-script",
+    "--args",
+    "-e",
+    "USE TEST_DB; MSCK REPAIR TABLE test_table;"
+  ],
+  "action_on_failure": "terminate"
+}

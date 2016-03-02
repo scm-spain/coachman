@@ -1,0 +1,8 @@
+{
+  "name": "Run sqoop.sh",
+  "jar": "s3://elasticmapreduce/libs/script-runner/script-runner.jar",
+  "arguments": [
+    "s3://my-bucket-with-code/sqoop_emr.sh"
+  ],
+  "action_on_failure": "terminate"
+}

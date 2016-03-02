@@ -1,0 +1,12 @@
+{
+  "name": "Copy drivers and sqoop to HDFS",
+  "jar": "command-runner.jar",
+  "arguments": [
+    "s3-dist-cp",
+    "--src",
+    "s3://my-bucket-with-libraries/sqoop",
+    "--dest",
+    "/user/oozie/share/lib/sqoop/"
+  ],
+  "action_on_failure": "terminate"
+}

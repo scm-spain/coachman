@@ -1,0 +1,12 @@
+{
+  "name": "Run oozie_conn.sh",
+  "jar": "s3://elasticmapreduce/libs/script-runner/script-runner.jar",
+  "arguments": [
+    "s3://my-bucket-with-code/emr/oozie/oozie_conn.sh",
+    "com.mysql.jdbc.Driver",
+    "jdbc:mysql://external.database.for.hue.host:3306/oozie",
+    "oozie",
+    "decryptPassword=supersecretpassword"
+  ],
+  "action_on_failure": "terminate"
+}

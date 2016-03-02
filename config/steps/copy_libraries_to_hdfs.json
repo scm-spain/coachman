@@ -1,0 +1,12 @@
+{
+  "name": "Copy libraries to HDFS",
+  "jar": "command-runner.jar",
+  "arguments": [
+    "s3-dist-cp",
+    "--src",
+    "s3://my-bucket-with-libraries/oozie",
+    "--dest",
+    "/user/oozie/share/lib/hive/"
+  ],
+  "action_on_failure": "terminate"
+}
